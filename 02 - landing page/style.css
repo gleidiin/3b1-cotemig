@@ -1,5 +1,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
+    color: #201e1f;
 }
 
 .top-banner {
@@ -19,21 +20,37 @@ nav.bg-transition {
 .banner-title {
     margin-top: 40px;
     font-size: 46px;
-    color: #fff;
+    color: #e6e7eb;
     padding: 20px 0;
 }
 
 .banner-btn {
-    border: 1px solid gray;
+    border: 1px solid #e6e7eb;
     background: none;
     border-radius: 0;
     text-transform: uppercase;
 }
 
-.about {
-    padding: 90px 0;
+.header .title {
+    text-transform: uppercase;
+    font-size: 32px;
+    padding: 20px 0 40px;
+    color: #09372b;
 }
 
+.about {
+    padding: 60px 0 100px;
+    background-color: #e6e7eb;
+}
+
+
 .contact {
-    padding: 80px 0 90px
+    background-color: #739d90;
+    padding: 60px 0 100px;
+}
+
+.footer {
+    padding: 80px 0 90px;
+    color: #e6e7eb;  
+    background: rgb(11,79,71); 
 }
