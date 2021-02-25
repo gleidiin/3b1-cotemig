@@ -1,0 +1,39 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.top-banner {
+    padding: 180px 60px 220px;
+    min-height: 80vh;
+    background-image: url('./assets/img/background-top.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+nav.bg-transition {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.banner-title {
+    margin-top: 40px;
+    font-size: 46px;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.banner-btn {
+    border: 1px solid gray;
+    background: none;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.about {
+    padding: 90px 0;
+}
+
+.contact {
+    padding: 80px 0 90px
+}
