@@ -16,18 +16,25 @@ class Calculadora {
 
         return new Promise((resolve, reject) => {
             const operacoes = this.operacao.split(' ');
-            const [valor1, operador, valor2] = operacoes;
+            do {
+                const [valor1, operador, valor2] = operacoes;
+                operacoes.shift();
+                operacoes.shift();
+                operacoes.shift();
+                // opercoes.splice(2, 3)
+                if(operador === this.SOMAR) {
+                    this.soma(valor1, valor2);
+                } else if(operador === this.SUBTRACAO) {
+                    this.subtracao(valor1, valor2);
+                } else {
+                    reject();
+                    return;
+                }
 
-            if(operador === this.SOMAR) {
-                this.soma(valor1, valor2);
-                resolve();
-            } else if(operador === this.SUBTRACAO) {
-                this.subtracao(valor1, valor2);
-                resolve();
-            } else {
-                reject();
-            }
+                operacoes.unshift(this.resultado);
+            } while(operacoes.length > 1)
 
+            resolve();
         });
     }
 
