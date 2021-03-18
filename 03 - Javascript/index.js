@@ -1,7 +1,4 @@
-
-
-// design pattern:  builder 
-class Calculadora {
+ class Calculadora {
 
     constructor() {
         this.SUBTRACAO = '-';
@@ -21,7 +18,6 @@ class Calculadora {
                 operacoes.shift();
                 operacoes.shift();
                 operacoes.shift();
-                // opercoes.splice(2, 3)
                 if(operador === this.SOMAR) {
                     this.soma(valor1, valor2);
                 } else if(operador === this.SUBTRACAO) {
@@ -52,7 +48,6 @@ class Calculadora {
         return this;
     }
 }
-
 
 // execução 
 const calculadora = new Calculadora();
