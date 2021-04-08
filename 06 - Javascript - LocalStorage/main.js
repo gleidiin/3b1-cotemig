@@ -82,6 +82,7 @@ function btnEditAction(event) {
 }
 
 function todoChecked(event) {
+    // TODO: implementar esse metodo
     event.target.checked;
 }
 

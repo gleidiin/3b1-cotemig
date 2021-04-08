@@ -60,8 +60,6 @@ divMani.appendChild(newDiv);
 
 /* manipulacao via string templating */
 
-fecth('https://pokeapi.co/api/v2/pokemon/')
-
 const templateCard = (title, text, image) => `
     <div>
         <h3>${title}</h3>
@@ -72,10 +70,26 @@ const templateCard = (title, text, image) => `
 
 const divManiTemp = document.getElementsByClassName('manipulacao-temp').item(0);
 
-fetch('https://pokeapi.co/api/v2/pokemon/')
-.then(response => response.json())
-.then(response => console.log(response.result));
+
+/* quarto e quinto use case: localstorage e event */
+
+const inputName = document.getElementsByTagName('input').namedItem('name');
+const inputDescription = document.getElementsByTagName('textarea').namedItem('description');
+
+function onChangeInput(event) {
+    const { name, value } = event.target;
+    localStorage.setItem(name, value);
+}
+
+inputName.addEventListener('change', onChangeInput);
+inputDescription.addEventListener('change', onChangeInput);
 
 
-divManiTemp.innerHTML = templateCard('Bla', 'Uma descricao', 'quebrada');
+if(localStorage.getItem('name')) {
+    inputName.value = localStorage.getItem('name');
+}
 
+const descriptionValue = localStorage.getItem('description');
+if(descriptionValue) {
+    inputDescription.innerHTML = descriptionValue;
+}
