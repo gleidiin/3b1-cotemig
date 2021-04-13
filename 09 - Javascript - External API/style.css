@@ -1,0 +1,24 @@
+.clicable {
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.clicable:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: block;
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.row {
+    display: flex;
+}
+
+.col-6 {
+    display: flex;
+    min-width: 50%;
+}
