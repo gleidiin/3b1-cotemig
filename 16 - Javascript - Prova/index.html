@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova de Framework</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="nomeCliente">Nome do Cliente</label>
+            <input required onchange="change(event)" type="text" name="nomeCliente">
+        </div>
+        <div>
+            <label for="conteudoCarga">Contúedo da Carga</label>
+            <input required onchange="change(event)" type="text" name="conteudoCarga">
+        </div>
+        <div>
+            <label for="prazoEntrega">Prazo de Entrega</label>
+            <input required type="date" onchange="change(event)" name="prazoEntrega">
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <ul></ul>
+    
+    <script src="./main.js"></script>
+</body>
+</html>
