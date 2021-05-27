@@ -7,6 +7,7 @@ const travelHandler = require("../handlers/travel-pack.handler");
 
 // REST API
 /// all path resource: travel-pack
+
 const router = Router()
     .get("/travel-pack", travelHandler.getAllTravelPack) // get
     .get("/travel-pack/:id", travelHandler.getTravelPackById) // get by id

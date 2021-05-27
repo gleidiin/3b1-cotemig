@@ -1,5 +1,5 @@
 // todos os pacote de viagem
-const packs = [
+let packs = [
     {
         id: 1,
         name: "Viagem para Europa",
@@ -38,17 +38,38 @@ const getTravelPackById = (req, res) => {
     res.send(pack);
 }
 
-
+// POST
 const createTravePack = (req, res) => {
-
+    // payload ou body da requisição
+    const pack = req.body;
+    // incrementou o id
+    pack.id = packs.length + 1;
+    // definiu uma data de criaçãoi
+    pack.createdAt = (new Date()).toString();
+    // adicionamos o item na lista
+    packs.push(pack);
+    // enviamos um status created, e enviamos o resultado
+    res.status(201).send(pack);
 }
 
+// PUT
 const updateTravelPack = (req, res) => {
-
+    // qual item será updatado
+    const id = req.params.id;
+    // contúdo que será atualizado
+    const pack = req.body;
+    // buscar conteúdo antigo
+    const index = packs.findIndex(p => p.id == id);
+    // atualizar o item na lista
+    packs[index] = {...packs[index], ...pack, id}; 
+    // enviar o que foi atualizado
+    res.send(packs[index]);
 }
 
 const deleteTravelPack = (req, res) => {
-
+    const id = req.params.id;
+    packs = packs.filter(pack => pack.id != id);
+    res.sendStatus(200);
 }
 
 module.exports = {
