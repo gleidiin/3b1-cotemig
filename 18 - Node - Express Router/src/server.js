@@ -1,5 +1,6 @@
 // require express e instanciando
 const express = require("express");
+const path = require("path")
 const app = express();
 
 // importar os custom routes
@@ -12,6 +13,7 @@ const NOT_FOUND = 404;
 app.use(express.json());
 app.use(logRequest);
 
+app.use("", express.static(path.resolve(__dirname, "static")));
 // adicionado rotas customizadas
 app.use("/api", travelPackRouter);
 

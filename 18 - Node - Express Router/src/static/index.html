@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha API Maneira</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h1>Bem vindo a API</h1>
+
+                <div class="mb-3">
+                    <label for="">Ação GET: travel-pack</label>
+                    <button class="btn btn-primary btn-block btn-lg" onclick="getAll()">
+                        Get all Travel
+                    </button>
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Ação GET BY ID: travel-pack</label>
+                    <button class="btn btn-primary btn-block btn-lg" onclick="getById(1)">
+                        Get by id Travel
+                    </button>
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Ação Create: travel-pack</label>
+                    <button class="btn btn-success btn-block btn-lg" onclick='create({
+                        "name": "Viagem para Europa",
+                        "description": "Uma turn de 30 dias pela europa ocidental, com tudo incluso",
+                        "origin": "Brasil"
+                    })'>
+                        Create travel pack
+                    </button>
+                </div>
+                <div class="mb-3">
+                    <label for="">Ação Delete: travel-pack</label>
+                    <button class="btn btn-danger btn-block btn-lg" onclick="deleteById(1)">
+                        Delete by id
+                    </button>
+                </div>
+            </div>
+            <div class="col-6">
+                <h3>Resultado da Requisição: <span id="req-result"></span></h3>
+                <pre style="white-space: pre-wrap; word-break: break-word;">
+                </pre>
+            </div>
+        </div>
+    </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        const http = axios.create({
+            baseURL: 'http://localhost:3000/api/',
+            timeout: 1000,
+        });
+
+        function loadData(status, body) {
+            document.querySelector("#req-result").innerHTML = status;
+            document.querySelector("pre").innerHTML = JSON.stringify(body);
+        }
+
+        function getAll() {
+            http.get("travel-pack")
+                .then((response) => {
+                    loadData(response.status, response.data);
+                })
+        }
+
+        function getById(id) {
+            http.get("travel-pack/" + id)
+                .then((response) => {
+                    loadData(response.status, response.data);
+                })
+        }
+
+        function create(body) {
+            http.post("travel-pack", body)
+                .then((response) => {
+                    loadData(response.status, response.data);
+                })
+        }
+
+        function update(id, body) {
+            http.put("travel-pack/" + id, body)
+                .then((response) => {
+                    loadData(response.status, response.data);
+                })
+        }
+
+        function deleteById(id) {
+            http.delete("travel-pack/" + id)
+                .then((response) => {
+                    loadData(response.status, response.data);
+                })
+        }
+
+
+
+
+    </script>
+</body>
+</html>

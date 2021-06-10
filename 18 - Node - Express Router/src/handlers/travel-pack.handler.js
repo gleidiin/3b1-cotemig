@@ -19,11 +19,6 @@ let packs = [
     }
 ];
 
-const searchTravelPackByPrice = (min, max) => {
-    const searchedPacks = packs.filter(pack => pack.totalValue >= min && pack.totalValue <= max);
-    return searchedPacks;
-}
-
 // req = requisição
 // res = resposta
 // pega todos os travel packs
