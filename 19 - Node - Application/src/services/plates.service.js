@@ -11,6 +11,7 @@ const create = async (plate) => {
         return createdPlate.toJSON();
     } catch(ex) {
         console.error("Error ao tentar criar novo plate: " + ex.toString());
+        throw new Error(ex.message);
     }
 }
 
