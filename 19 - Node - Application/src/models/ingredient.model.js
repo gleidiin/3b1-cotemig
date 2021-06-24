@@ -21,4 +21,5 @@ const IngredientModel = connection.define("IngredientModel", {
     tableName: "ingredients"
 });
 
+
 module.exports = IngredientModel;
