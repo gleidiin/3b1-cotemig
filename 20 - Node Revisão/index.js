@@ -3,7 +3,6 @@ const uuid = require("uuid");
 const app = express();
 app.use(express.json()); 
 
-
 const router = express.Router();
 
 const games = [];
@@ -28,7 +27,7 @@ const base = {
 };
 
 
-// localhost:3000/alunos/gleidin
+// POST: localhost:3000/game/start
 router.post("/start", (_, res) => {
     const newGame = {...base};
 
@@ -73,7 +72,7 @@ router.post("/start", (_, res) => {
         res.sendStatus(404);
     } else {
         const game = games[index];
-        if((auth == game.p1 || auth == game.p2) && game.turn == auth) {
+        if(game.turn == auth) {
             const position = game.positions
                 .find(position => position.x == x && position.y == y && !position.player);
 
